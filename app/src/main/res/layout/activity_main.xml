@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.jasonngor.blackjack.MainActivity">
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editBet"
+        android:layout_width="60dp"
+        android:text="20"
+        android:layout_alignBaseline="@+id/txtBet"
+        android:layout_alignBottom="@+id/txtBet"
+        android:layout_toEndOf="@+id/txtBet"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:text="You have $200. How much do you want to bet? (1 - 20)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtIntro"
+        android:layout_marginBottom="40dp"
+        android:layout_above="@+id/editBet"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="BET!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnBet"
+        android:layout_marginTop="55dp"
+        android:layout_below="@+id/editBet"
+        android:layout_centerHorizontal="true"
+        android:onClick="startGame"/>
+
+    <SeekBar
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar"
+        android:max="19"
+        android:progress="20"
+        android:layout_marginTop="144dp"
+        android:layout_x="15dp"
+        android:layout_y="16dp"
+        android:layout_width="160dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/txtIntro" />
+
+    <TextView
+        android:text="Bet:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtBet"
+        android:layout_marginStart="34dp"
+        android:textSize="18sp"
+        android:layout_alignBottom="@+id/seekBar"
+        android:layout_toEndOf="@+id/seekBar"
+        android:textAlignment="gravity"
+        android:gravity="right" />
+</RelativeLayout>
