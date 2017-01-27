@@ -55,7 +55,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="68dp"
         android:layout_below="@+id/txtHand"
-        android:layout_alignStart="@+id/txtHand" />
+        android:layout_alignStart="@+id/txtHand"
+        android:onClick="hit"/>
 
     <TextView
         android:text="Draw a card?"

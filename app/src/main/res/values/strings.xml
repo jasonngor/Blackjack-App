@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Blackjack</string>
     <string name="preference_file_key">sharedData</string>
+    <string name="current_bet">currentBet</string>
+    <string name="cash">cash</string>
+    <string name="full_hand_message">You already have 5 cards in your hand!</string>
+    <string name="ok">OK</string>
 </resources>

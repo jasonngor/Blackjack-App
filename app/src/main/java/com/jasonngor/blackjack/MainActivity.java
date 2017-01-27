@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
     private SeekBar seekBar;
     private EditText editBet;
     private Button btnBet;
+    private SharedPreferences sharedPref;
+    private SharedPreferences.Editor editor;
+    private int startingCash = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
         editBet = (EditText) findViewById(R.id.editBet);
         btnBet = (Button) findViewById(R.id.btnBet);
 
-        SharedPreferences sharedPref = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        sharedPref = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
+        editor.putInt(getString(R.string.cash), startingCash);
+        editor.commit();
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -87,8 +93,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startGame(View view) {
+        int currentBet = Integer.parseInt(editBet.getText().toString());
+        int cash = sharedPref.getInt(getString(R.string.cash), 0);
+        editor.putInt(getString(R.string.current_bet), currentBet);
+        editor.putInt(getString(R.string.cash), cash - currentBet);
+        editor.commit();
         Intent intent = new Intent(this, Gameplay.class);
-        intent.putExtra(userBet, Integer.parseInt(editBet.getText().toString()));
         this.startActivity(intent);
     }
 
